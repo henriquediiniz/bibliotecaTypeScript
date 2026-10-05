@@ -10,7 +10,7 @@
     "start": "node --experimental-transform-types src/index.ts",
     "dev": "node --experimental-transform-types --watch src/index.ts",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-transform-types --test tests/*.test.ts"
+    "test": "node --experimental-transform-types --test \"tests/**/*.test.ts\""
   },
   "devDependencies": {
     "@types/node": "^24.13.6",

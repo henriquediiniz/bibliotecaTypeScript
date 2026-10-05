@@ -1,8 +1,25 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { Book } from "../src/entities/Book.ts";
-import { Loan } from "../src/entities/Loan.ts";
-import { User } from "../src/entities/User.ts";
+import { Book } from "../../src/entities/Book.ts";
+import { Loan } from "../../src/entities/Loan.ts";
+import { User } from "../../src/entities/User.ts";
+
+for (const quantity of [0, 1, 10]) {
+  test(`Book aceita quantidade inicial inteira e não negativa: ${quantity}`, () => {
+    const book = new Book(1, "Dom Casmurro", "Machado de Assis", "Romance", quantity);
+
+    assert.equal(book.getQuantity(), quantity);
+  });
+}
+
+for (const quantity of [-1, -0.5, 0.5, 1.5, NaN, Infinity, -Infinity]) {
+  test(`Book rejeita quantidade inicial inválida: ${quantity}`, () => {
+    assert.throws(
+      () => new Book(1, "Dom Casmurro", "Machado de Assis", "Romance", quantity),
+      { message: "Initial quantity must be a non-negative integer" },
+    );
+  });
+}
 
 test("Book controla o estoque ao emprestar e devolver uma cópia", () => {
   const book = new Book(1, "Dom Casmurro", "Machado de Assis", "Romance", 2);

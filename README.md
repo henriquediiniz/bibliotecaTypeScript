@@ -45,11 +45,20 @@ src/
     LibraryService.ts        # Cadastro, empréstimo, devolução e busca
   strategies/                # Contrato de busca e estratégias por autor e categoria
   index.ts                   # Demonstração
-tests/                       # Testes das entidades, repositórios, estratégias e serviço
+tests/                       # Subpastas espelham as áreas de src
+  entities/
+    entities.test.ts
+  repositories/
+    repositories.test.ts
+  services/
+    library-service.test.ts
+  strategies/
+    strategies.test.ts
 ```
 
 ## Regras
 
+- A quantidade inicial de `Book` deve ser um inteiro não negativo (zero é permitido). Valores negativos, fracionários, `NaN` e infinitos lançam `Initial quantity must be a non-negative integer` no construtor, antes do cadastro.
 - `Book` controla o estoque pelos métodos `decrease`, `increase` e `getQuantity`. Sem cópias disponíveis, `decrease` lança `No copies available`.
 - Livros e usuários não podem ter IDs repetidos. Seus repositórios lançam erros ao consultar um ID inexistente ou uma lista vazia.
 - Um usuário pode ter apenas um empréstimo ativo de cada livro. Usuários diferentes podem emprestar o mesmo livro enquanto houver cópias.
@@ -74,4 +83,6 @@ npm run typecheck
 npm test
 ```
 
-Os testes cobrem cadastros, consultas, duplicidades, estoque esgotado, empréstimos, devoluções, tratamento de erros e a troca de estratégias de busca.
+O comando `npm test` encontra os arquivos `*.test.ts` recursivamente nas subpastas de `tests`, organizadas conforme as áreas de `src`.
+
+Os testes cobrem quantidades iniciais válidas e inválidas, cadastros, consultas, duplicidades, estoque esgotado, empréstimos, devoluções, tratamento de erros e a troca de estratégias de busca.

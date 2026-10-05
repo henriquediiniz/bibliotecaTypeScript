@@ -1,15 +1,15 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { Book } from "../src/entities/Book.ts";
-import { Loan } from "../src/entities/Loan.ts";
-import { User } from "../src/entities/User.ts";
-import { BookRepository } from "../src/repositories/BookRepository.ts";
-import { LoanRepository } from "../src/repositories/LoanRepository.ts";
-import { UserRepository } from "../src/repositories/UserRepository.ts";
-import { LibraryService } from "../src/services/LibraryService.ts";
-import { AuthorSearchStrategy } from "../src/strategies/AuthorSearchStrategy.ts";
-import { CategorySearchStrategy } from "../src/strategies/CategorySearchStrategy.ts";
-import type { SearchStrategy } from "../src/strategies/SearchStrategy.ts";
+import { Book } from "../../src/entities/Book.ts";
+import { Loan } from "../../src/entities/Loan.ts";
+import { User } from "../../src/entities/User.ts";
+import { BookRepository } from "../../src/repositories/BookRepository.ts";
+import { LoanRepository } from "../../src/repositories/LoanRepository.ts";
+import { UserRepository } from "../../src/repositories/UserRepository.ts";
+import { LibraryService } from "../../src/services/LibraryService.ts";
+import { AuthorSearchStrategy } from "../../src/strategies/AuthorSearchStrategy.ts";
+import { CategorySearchStrategy } from "../../src/strategies/CategorySearchStrategy.ts";
+import type { SearchStrategy } from "../../src/strategies/SearchStrategy.ts";
 
 function setup(quantity = 2) {
   const books = new BookRepository();

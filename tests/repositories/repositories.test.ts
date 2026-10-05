@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { Book } from "../src/entities/Book.ts";
-import { Loan } from "../src/entities/Loan.ts";
-import { User } from "../src/entities/User.ts";
-import { BookRepository } from "../src/repositories/BookRepository.ts";
-import { LoanRepository } from "../src/repositories/LoanRepository.ts";
-import { UserRepository } from "../src/repositories/UserRepository.ts";
+import { Book } from "../../src/entities/Book.ts";
+import { Loan } from "../../src/entities/Loan.ts";
+import { User } from "../../src/entities/User.ts";
+import { BookRepository } from "../../src/repositories/BookRepository.ts";
+import { LoanRepository } from "../../src/repositories/LoanRepository.ts";
+import { UserRepository } from "../../src/repositories/UserRepository.ts";
 
 test("BookRepository cadastra e consulta livros por id e em lista", () => {
   const repository = new BookRepository();

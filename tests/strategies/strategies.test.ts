@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { Book } from "../src/entities/Book.ts";
-import { AuthorSearchStrategy } from "../src/strategies/AuthorSearchStrategy.ts";
-import { CategorySearchStrategy } from "../src/strategies/CategorySearchStrategy.ts";
+import { Book } from "../../src/entities/Book.ts";
+import { AuthorSearchStrategy } from "../../src/strategies/AuthorSearchStrategy.ts";
+import { CategorySearchStrategy } from "../../src/strategies/CategorySearchStrategy.ts";
 
 const books = [
   new Book(1, "Dom Casmurro", "Machado de Assis", "Romance", 2),
